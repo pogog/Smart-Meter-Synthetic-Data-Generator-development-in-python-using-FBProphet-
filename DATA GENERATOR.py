@@ -5,7 +5,8 @@
 
 # In[ ]:
 
-
+import pandas as pd
+from tkinter import *
 
 def add_numbers():
    v=int(e2.get())
