@@ -4,7 +4,7 @@ Data-science is a key component of Morden science since it fuels AI, data analyt
 # Setup, Configure, and Build
 
 ## Step 1
-In order to run this data first extract unzip the source file which contain original data set of consumers energy savings in to folder where python environment running. Caution!! Don't change the name of source the file keep LCL-June2015v2_19.csv as it is.
+In order to run this generator first extract unzip the source file which contain original data set of consumers energy savings in to folder where python environment running. Caution!! Don't change the name of source the file keep LCL-June2015v2_19.csv as it is.
 ## Step 2
 Run main.py script, it open GUI interface and asking for number of meters (n) and number of days. Enter the credential and submit it. Caution!! 20 extra csv files also generated in the name of consumer_1.csv to consumer_20.csv in same working environment. Don’t delete these files it required for successful running of the main.py script.
 ## Step 3
