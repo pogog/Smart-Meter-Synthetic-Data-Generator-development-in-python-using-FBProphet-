@@ -4,35 +4,18 @@
 # # PRE PROCESSING
 
 # LIBRARY IMPORTING
-
-# In[1]:
-
-
 import pandas as pd
 
-
 # DATA LOAD AND VISUALIZATION
-
-# In[2]:
-
-
 dat=pd.read_csv('LCL-June2015v2_19.csv')
 dat.to_csv('consumer.csv', header=True, index=False)
 dat= dat.drop(['stdorToU'], axis=1)
 list(dat)
 
-
 # # CLEANING RAW DATA
-
-# In[3]:
-
 
 dat=dat.rename(columns = {'KWH per half hour ':'Energy_consumption_kwh'})
 print(dat)
-
-
-# In[4]:
-
 
 consumer_1= dat[(dat.LCLid == "MAC000674")]
 consumer_2=dat[(dat.LCLid == "MAC000675")]
@@ -66,9 +49,6 @@ consumer_29=dat[(dat.LCLid == "MAC000712")]
 consumer_30=dat[(dat.LCLid == "MAC000714")]
 
 
-# In[5]:
-
-
 consumer_1=consumer_1.drop(['LCLid'],axis=1)
 consumer_2=consumer_2.drop(['LCLid'],axis=1)
 consumer_3=consumer_3.drop(['LCLid'],axis=1)
@@ -93,9 +73,6 @@ consumer_20=consumer_20.drop(['LCLid'],axis=1)
 
 # Segrgate the consumer based on ID
 
-# In[7]:
-
-
 consumer_11=consumer_1.loc['2014-01-01 00:00:00':'2021-01-08 00:00:00']
 consumer_22=consumer_2.loc['2014-01-01 00:00:00':'2021-01-08 00:00:00']
 consumer_33=consumer_3.loc['2014-01-01 00:00:00':'2021-01-08 00:00:00']
@@ -117,11 +94,7 @@ consumer_1818=consumer_18.loc['2014-01-01 00:00:00':'2021-01-08 00:00:00']
 consumer_1919=consumer_19.loc['2014-01-01 00:00:00':'2021-01-08 00:00:00']
 consumer_2020=consumer_20.loc['2014-01-01 00:00:00':'2021-01-08 00:00:00']
 
-
 # Create CSV files for each consumers
-
-# In[8]:
-
 
 consumer_1.to_csv('consumer_1.csv', header=True, index=False)
 consumer_2.to_csv('consumer_2.csv', header=True, index=False)
@@ -144,20 +117,12 @@ consumer_18.to_csv('consumer_18.csv', header=True, index=False)
 consumer_19.to_csv('consumer_19.csv', header=True, index=False)
 consumer_20.to_csv('consumer_20.csv', header=True, index=False)
 
-
 # # FORECASTING
-
-# In[10]:
-
 
 import pandas as pd
 from fbprophet.plot import plot_plotly, plot_components_plotly
 from fbprophet import Prophet
 from tkinter import *
-
-
-# In[ ]:
-
 
 def add_numbers():
     v=int(e2.get())
@@ -193,18 +158,14 @@ Label(root, text="Enter no of days to predict:").grid(row=0, sticky=W)
 Label(root, text="Enter no of meters:").grid(row=1, sticky=W)
 Label(root, text="Data will be predicted from reference data").grid(row=2, sticky=W)
 
-
-
- 
 e1 = Entry(root)
 e2 = Entry(root)
- 
+
 e1.grid(row=0, column=1)
 e2.grid(row=1, column=1)
- 
+
 b = Button(root, text="submit", command=add_numbers)
 b.grid(row=0, column=2,columnspan=2, rowspan=2,sticky=W+E+N+S, padx=5, pady=5)
- 
- 
+
 root.mainloop()
 
